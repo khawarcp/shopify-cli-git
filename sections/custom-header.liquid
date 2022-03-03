@@ -5,8 +5,12 @@
                 <div class="h-social-icons">
                     <ul>
                         <li>
-                            <a href="{{ settings.social_facebook_link }}"><img src="{{ 'facebook.svg' | asset_img_url: 'master'}}" alt="facebook"></a>
-                            {{ 'logo.png' | asset_img_url: 'master' | img_tag }}                    
+                            <a href="{{ settings.social_facebook_link }}">
+                                {{ 'facebook.png' | asset_img_url: 'master' | img_tag }}
+                            </a>
+                            {{ 'logo.png' | asset_img_url: 'master' | img_tag }}   
+                            {{ 'facebook.png' | asset_img_url: 'master' | img_tag }}
+                            {{ 'https://cdn.shopify.com/s/files/1/0631/7729/4069/files/facebook.svg?v=1646310906' | file_img_url: 'master' | img_tag }}                 
                         </li>
                         <li><a href="{{ settings.social_twitter_link }}"><img src="{{ 'twitter.svg' | asset_img_url: 'master'}}" alt="twitter"></a></li>
                         <li><a href="{{ settings.social_instagram_link }}"><img src="{{ 'instagram.svg' | asset_img_url: 'master'}}" alt="instagram"></a></li>
