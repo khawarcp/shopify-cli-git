@@ -5,10 +5,11 @@
                 <div class="h-social-icons">
                     <ul>
                         <li>
-                            <a href="{{ settings.social_facebook_link }}"><img src="{{ 'facebook.svg' | asset_img_url: 'original'}}" alt="facebook"></a>                        
+                            <a href="{{ settings.social_facebook_link }}"><img src="{{ 'facebook.svg' | asset_img_url: 'master'}}" alt="facebook"></a>
+                            {{ 'logo.png' | asset_img_url: 'master' | img_tag }}                    
                         </li>
-                        <li><a href="{{ settings.social_twitter_link }}"><img src="assets/images/twitter.svg" alt="twitter"></a></li>
-                        <li><a href="{{ settings.social_instagram_link }}"><img src="assets/images/instagram.svg" alt="instagram"></a></li>
+                        <li><a href="{{ settings.social_twitter_link }}"><img src="{{ 'twitter.svg' | asset_img_url: 'master'}}" alt="twitter"></a></li>
+                        <li><a href="{{ settings.social_instagram_link }}"><img src="{{ 'instagram.svg' | asset_img_url: 'master'}}" alt="instagram"></a></li>
                     </ul>
                 </div>
                 <div class="h-top-links">
@@ -43,7 +44,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li>
-                            <a href="#"><span class="phone-icon"><img src="assets/images/phone-icon.svg"
+                            <a href="#"><span class="phone-icon"><img src="{{ section.settings.logo | img_url: 'master' }}"
                                         alt="phone-icon"></span>
                                 <div class="call-us">
                                     <h5>Call Us</h5>
