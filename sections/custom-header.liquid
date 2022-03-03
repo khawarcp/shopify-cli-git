@@ -6,15 +6,19 @@
                     <ul>
                         <li>
                             <a href="{{ settings.social_facebook_link }}">
-                                {{ 'facebook.png' | asset_img_url: 'master' | img_tag }}
-                            </a>
-                            {{ 'logo.png' | asset_img_url: 'master' | img_tag }}   
-                            {{ 'facebook.png' | asset_img_url: 'master' | img_tag }}
-                            {{ 'facebook.svg' | asset_img_url: 'master' | img_tag }}
-                            {{ 'https://cdn.shopify.com/s/files/1/0631/7729/4069/files/facebook.svg?v=1646310906' | file_img_url: 'master' | img_tag }}                 
+                                <img src="{{ 'facebook.png' | asset_img_url: 'master' }}" alt="facebook">
+                            </a>  
                         </li>
-                        <li><a href="{{ settings.social_twitter_link }}"><img src="{{ 'twitter.svg' | asset_img_url: 'master'}}" alt="twitter"></a></li>
-                        <li><a href="{{ settings.social_instagram_link }}"><img src="{{ 'instagram.svg' | asset_img_url: 'master'}}" alt="instagram"></a></li>
+                        <li>
+                            <a href="{{ settings.social_twitter_link }}">
+                                <img src="{{ 'twitter.svg' | asset_url  }}" alt="twitter">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ settings.social_instagram_link }}">
+                                <img src="{{ 'instagram.svg' | asset_url }}" alt="instagram">
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="h-top-links">
@@ -37,7 +41,7 @@
                     </ul>
                     <ul class="right-menu">
                         <li>
-                            <a href="tel:(800) 844-5345"><span class="phone-icon"><img src="assets/images/phone-icon.svg"
+                            <a href="tel:(800) 844-5345"><span class="phone-icon"><img src="{{ 'phone-icon.svg' | asset_url }}"
                                         alt="phone-icon"></span>
                                 <div class="call-us">
                                     <h5>Call Us</h5>
@@ -48,14 +52,16 @@
                         <li>
                             <a href="#">
                                 <h5>Cart</h5>
-                                <span class="cart-icon"><img src="assets/images/cart-icon.svg" alt="cart-icon"><span
+                                <span class="cart-icon"><img src="{{ 'cart-icon.svg' | asset_url }}" alt="cart-icon"><span
                                         class="cart-counter">2</span></span>
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <div class="logo">
-                    <a href="{{ routes.root_url }}"><img src="{{ section.settings.logo | img_url: 'original' }}" alt="logo"></a>
+                    <a href="{{ routes.root_url }}">
+                        {{ section.settings.logo | image_url: width : 300 | image_tag : alt : 'Logo' , loading : 'lazy' }}
+                    </a>
                 </div>
                 <div class="menu-bar d-none">
                     <i class="fa fa-bars" aria-hidden="true"></i>
@@ -79,6 +85,11 @@
           "type": "link_list",
           "id": "main_menu",
           "label": "Main Menu"
+      },
+      {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone Number"
       }
     ]
 }
