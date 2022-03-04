@@ -60,13 +60,6 @@
                             </a>
                         </li>
                         <li>
-                            {% comment %}
-                            <a href="{{}}">
-                                <h5>Cart</h5>
-                                <span class="cart-icon"><img src="{{ 'cart-icon.svg' | asset_url }}" alt="cart-icon"><span
-                                        class="cart-counter">2</span></span>
-                            </a>
-                            {% endcomment %}
                             <a href="{{ routes.cart_url }}" class="" id="cart-icon-bubble">
                                 <h5>Cart</h5>
                                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
