@@ -138,7 +138,15 @@
                             <a href="{{ routes.cart_url }}" id="cart-icon-bubble">
                                 <h5>Cart</h5>
                                 <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
-                                <span class="cart-icon"><img src="{{ 'cart-icon.svg' | asset_url }}" alt="cart-icon">
+                                <span class="cart-icon">
+                                
+                                    {% if cart == empty %}
+                                    <img src="{{ 'cart-icon.svg' | asset_url }}" alt="cart-icon">
+                                    {% else %}
+                                    <img src="{{ 'cart-icon.svg' | asset_url }}" alt="cart-icon">
+                                    {% endif %}
+                            
+                                   
                                 {%- if cart != empty -%}                                  
                                     <span class="cart-count-bubble cart-counter">
                                       {%- if cart.item_count < 100 -%}

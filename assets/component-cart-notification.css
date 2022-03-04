@@ -19,7 +19,7 @@
   transform: translateY(-100%);
   visibility: hidden;
   width: 100%;
-  z-index: -1;
+  z-index: 99;
   filter: drop-shadow(
     var(--popup-shadow-horizontal-offset)
     var(--popup-shadow-vertical-offset)
