@@ -23,8 +23,19 @@
                 </div>
                 <div class="h-top-links">
                     <ul>
-                        <li><a href="#">Search</a></li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href="{{ routes.search_url }}">Search</a></li>
+                        <li>
+                            <a href="{% if customer %}{{ routes.account_url }}{% else%}{{ routes.account_login_url }}{% endif %}">
+                                {%- liquid
+                                    if customer
+                                      echo 'customer.account_fallback' | t
+                                    else
+                                      echo 'customer.log_in' | t
+                                    endif
+                                  -%}
+                                Register
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -41,11 +52,11 @@
                     </ul>
                     <ul class="right-menu">
                         <li>
-                            <a href="tel:(800) 844-5345"><span class="phone-icon"><img src="{{ 'phone-icon.svg' | asset_url }}"
+                            <a href="tel:{{ section.settings.phone }}"><span class="phone-icon"><img src="{{ 'phone-icon.svg' | asset_url }}"
                                         alt="phone-icon"></span>
                                 <div class="call-us">
                                     <h5>Call Us</h5>
-                                    <h3>(800) 844-5345</h3>
+                                    <h3>{{ section.settings.phone }}</h3>
                                 </div>
                             </a>
                         </li>
@@ -89,7 +100,8 @@
       {
           "type": "text",
           "id": "phone",
-          "label": "Phone Number"
+          "label": "Phone Number",
+           "default": "(800) 844-5345"
       }
     ]
 }
