@@ -1,9 +1,11 @@
+
 <link rel="stylesheet" href="{{ 'section-product-recommendations.css' | asset_url }}" media="print" onload="this.media='all'">
+
 
 <noscript>{{ 'section-product-recommendations.css' | asset_url | stylesheet_tag }}</noscript>
 
 
-<div class="color-{{ section.settings.color_scheme }} gradient {{ producd.id }} shop-category" >
+<div class="color-{{ section.settings.color_scheme }} gradient shop-category">
   <product-recommendations class="product-recommendations container section-{{ section.id }}-padding isolate" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
     {% if recommendations.performed and recommendations.products_count > 0 %}
       <h2 class="product-recommendations__heading">{{ section.settings.heading | escape }}</h2>
@@ -11,25 +13,25 @@
         {% for recommendation in recommendations.products limit: 3 %}
         <div class="col-md-3">
           <div class="stylish-collections-col">
-            <div class="stylish-col-img">
-                <img src="{{ product.featured_image | img_url : "original" }}" alt="stylish-img1">
-                <div class="stylish-button custom-site-btn">
-                    <a href="#">See Details</a>
-                </div>
-            </div>
-            <a href="#" class="stylish-col-text">
-                <h6> {{ product.title }} </h6>
-                <span> {{ product.price | money }} </span>
-            </a>
-        </div>
-        </div>
+              <div class="stylish-col-img">
+                  <img src="{{ product.featured_image | img_url: 'original' }}" alt="stylish-img1">
+                  <div class="stylish-button custom-site-btn">
+                      <a href="{{ product.url }}">See Details</a>
+                  </div>
+              </div>
+              <a href="{{ product.url }}" class="stylish-col-text">
+                  <h6> {{ product.title  }} </h6>
+                  <span> {{ product.price | money }} </span>
+              </a>
+          </div>
+      </div>
         {% endfor %}
       </div>
     {% endif %}
   </product-recommendations>
 </div>
 
-{% endif %}
+
 {% javascript %}
   class ProductRecommendations extends HTMLElement {
     constructor() {
